@@ -1,7 +1,10 @@
 package com.retroswap.RetroSwap_Backend.Controller;
 
 import com.retroswap.RetroSwap_Backend.Model.Product;
+import com.retroswap.RetroSwap_Backend.Model.ProductRequest;
+import com.retroswap.RetroSwap_Backend.Model.User;
 import com.retroswap.RetroSwap_Backend.Service.Product_service;
+import com.retroswap.RetroSwap_Backend.Service.User_service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +17,7 @@ import java.util.List;
 public class Product_Controller {
     @Autowired
     Product_service productService;
+
     @GetMapping("/products")
     public ResponseEntity<List<Product>>  getproducts()
     {
@@ -35,13 +39,14 @@ public class Product_Controller {
        return ResponseEntity.ok(product);
     }
     @PostMapping("/products")
-    public ResponseEntity<Void> addProduct(@RequestBody Product product) {
+    public ResponseEntity<Void> addProduct(@RequestBody ProductRequest request) {
 
-        if(product==null)
+
+        if(request==null)
         {
             return ResponseEntity.badRequest().build();
         }
-        productService.addProduct(product);
+        productService.addProduct(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
     @DeleteMapping("products/{id}")

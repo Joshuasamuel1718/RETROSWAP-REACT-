@@ -8,7 +8,23 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  long cartId;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public void setCartId(long cartId) {
+        this.cartId = cartId;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public long getCartId() {
+        return cartId;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }
