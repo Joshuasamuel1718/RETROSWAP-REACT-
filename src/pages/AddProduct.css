@@ -1,0 +1,118 @@
+.add-product-page {
+  min-height: calc(100vh - 70px);
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 45px 20px;
+}
+
+.add-product-card {
+  width: 550px;
+  background: white;
+  padding: 35px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.add-product-card h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 30px;
+  color: #222;
+}
+
+.add-product-subtitle {
+  text-align: center;
+  color: #777;
+  margin: 8px 0 30px;
+}
+
+.add-product-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-product-card input,
+.add-product-card textarea,
+.add-product-card select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+}
+
+.add-product-card input:focus,
+.add-product-card textarea:focus,
+.add-product-card select:focus {
+  border-color: #333;
+}
+
+.add-product-card textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.add-product-card select {
+  background: white;
+  cursor: pointer;
+}
+
+.image-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.image-input label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.image-input input {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.add-product-card button {
+  margin-top: 8px;
+  padding: 14px;
+  border: none;
+  border-radius: 7px;
+  background: #222;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-product-card button:hover {
+  background: #444;
+}
+
+.success-message {
+  margin: 0;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 14px;
+}
+
+.error-message {
+  margin: 0;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  background: #ffebee;
+  color: #c62828;
+  font-size: 14px;
+}
