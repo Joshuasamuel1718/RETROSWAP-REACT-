@@ -1,16 +1,60 @@
-# React + Vite
+# RetroSwap
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Second-hand marketplace application where users can buy and sell used products.
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Backend
+- Java
+- Spring Boot
+- Spring Security
+- JWT
+- Spring Data JPA
+- Hibernate
+- MySQL / H2
+- Maven
 
-## React Compiler
+### Frontend
+- React
+- JavaScript
+- HTML
+- CSS
+- Vite
+- Axios
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- User registration and authentication
+- JWT-based authentication and authorization
+- Product CRUD operations
+- Product search and filtering
+- Product categories
+- Product image upload
+- Shopping cart management
+- Order management
+- User profile management
+- Responsive frontend
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+```text
+RetroSwap/
+│
+├── Frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── assets/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── package.json
+│   └── vite.config.js
+│
+└── Backend/
+    ├── src/
+    │   ├── main/
+    │   └── test/
+    ├── pom.xml
+    └── mvnw
