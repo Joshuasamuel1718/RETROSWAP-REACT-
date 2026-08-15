@@ -1,5 +1,7 @@
 package com.retroswap.RetroSwap_Backend.Service;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.retroswap.RetroSwap_Backend.Model.Product;
 import com.retroswap.RetroSwap_Backend.Model.ProductRequest;
 import com.retroswap.RetroSwap_Backend.Model.User;
@@ -8,8 +10,11 @@ import com.retroswap.RetroSwap_Backend.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class Product_service {
@@ -26,13 +31,17 @@ public class Product_service {
 
         return productRepo.findById(id).orElse(null);
     }
-
-
-    public void addProduct(ProductRequest request) {
+    @Autowired
+    private Cloudinary cloudinary;
+    public void addProduct(ProductRequest request, MultipartFile file) throws IOException {
 
 
         User user = userRepo.findByEmail(getEmail());
-
+        Map uploadResult = cloudinary.uploader().upload(
+                file.getBytes(),
+                ObjectUtils.emptyMap()
+        );
+        String imageUrl = (String) uploadResult.get("secure_url");
         Product product = new Product();
 
         product.setUser(user);
@@ -40,7 +49,7 @@ public class Product_service {
         product.setDescription(request.getDescription());
         product.setName(request.getName());
         product.setCategory(request.getCategory());
-        product.setImage(request.getImage());
+        product.setImage(imageUrl);
         product.setColor(request.getColor());
         product.setQuantity(request.getQuantity());
         product.setPrice(request.getPrice());

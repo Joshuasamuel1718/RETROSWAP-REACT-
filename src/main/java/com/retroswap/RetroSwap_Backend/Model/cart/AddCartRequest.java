@@ -1,4 +1,4 @@
-package com.retroswap.RetroSwap_Backend.Model;
+package com.retroswap.RetroSwap_Backend.Model.cart;
 
 import lombok.Getter;
 import lombok.Setter;

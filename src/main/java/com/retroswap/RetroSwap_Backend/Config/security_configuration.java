@@ -34,10 +34,12 @@ public class security_configuration {
     {
         return httpSecurity.
                 csrf(customizer->customizer.disable())
+                .cors(cors -> {})
                 .authorizeHttpRequests(request-> request
                                 .requestMatchers(
                                         "/retroswap/auth/register",
-                                        "/retroswap/auth/login"
+                                        "/retroswap/auth/login",
+                                        "/retroswap/ai-test"
                                 ).permitAll()
 
                                 .requestMatchers(HttpMethod.GET,

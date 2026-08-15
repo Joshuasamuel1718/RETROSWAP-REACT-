@@ -1,10 +1,11 @@
 package com.retroswap.RetroSwap_Backend.Service;
 
-import com.retroswap.RetroSwap_Backend.Model.AddCartRequest;
+import com.retroswap.RetroSwap_Backend.Model.cart.AddCartRequest;
 import com.retroswap.RetroSwap_Backend.Model.Product;
 import com.retroswap.RetroSwap_Backend.Model.User;
 import com.retroswap.RetroSwap_Backend.Model.cart.Cart;
 import com.retroswap.RetroSwap_Backend.Model.cart.CartItem;
+import com.retroswap.RetroSwap_Backend.Model.cart.UpdateCart;
 import com.retroswap.RetroSwap_Backend.Repository.Cart_itemrepo;
 import com.retroswap.RetroSwap_Backend.Repository.Cart_repo;
 import com.retroswap.RetroSwap_Backend.Repository.Product_repo;
@@ -62,15 +63,15 @@ public class Cart_service {
         cartItemrepo.save(cartItem1);
     }
 
-    public void updateCart(CartItem cartItem) {
+    public void updateCart(UpdateCart updateCart) {
         User user=userRepo.findByEmail(getEmail());
         Cart cart=cartRepo.findByUser(user);
         List<CartItem> cartItem1=cartItemrepo.findByCart(cart);
         for (int i=0;i<cartItem1.size();i++)
         {
-            if(cartItem.getId()==cartItem1.get(i).getId())
+            if(updateCart.getCartItemId()==cartItem1.get(i).getId())
             {
-                cartItem1.get(i).setQuantity(cartItem.getQuantity());
+                cartItem1.get(i).setQuantity(updateCart.getQuantity());
                 cartItemrepo.save(cartItem1.get(i));
                 break;
             }
